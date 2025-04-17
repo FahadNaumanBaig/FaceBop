@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceBomp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>FaceBomp</h1>
+
+    <div class="controls">
+        <button id="startButton">Start Game</button>
+        <p>Score: <span id="scoreDisplay">0</span></p>
+        <p>Time Left: <span id="timerDisplay">30</span>s</p> </div>
+
+    <div id="gameBoard">
+        <div class="hole"><img src="photo.jpg" alt="Face" class="face"></div>
+        <div class="hole"><img src="photo.jpg" alt="Face" class="face"></div>
+        <div class="hole"><img src="photo.jpg" alt="Face" class="face"></div>
+        <div class="hole"><img src="photo.jpg" alt="Face" class="face"></div>
+        <div class="hole"><img src="photo.jpg" alt="Face" class="face"></div>
+        <div class="hole"><img src="photo.jpg" alt="Face" class="face"></div>
+        </div>
+
+    <div id="finalMessage" class="final-message"> <h2>Game Over!</h2>
+        <p>Your final score is: <span id="finalScore">0</span></p>
+        <p id="wittyMessage"></p> </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+/* style.css */
+
+/* --- Global Styles & Theme --- */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #87CEEB 0%, #007BFF 100%);
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+h1 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+/* --- Controls --- */
+.controls {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.controls p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.controls span {
+    font-weight: normal;
+    color: #003d80;
+}
+
+button#startButton { /* More specific selector */
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button#startButton:hover {
+    background-color: #0056b3;
+}
+
+button#startButton:active {
+    transform: scale(0.98);
+}
+
+button#startButton:disabled {
+    background-color: #cccccc; /* Grey out when disabled */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+/* --- Game Board & Holes --- */
+#gameBoard {
+    display: grid;
+    /* 3 columns, 120px wide each */
+    grid-template-columns: repeat(3, 120px);
+     /* 2 rows, 120px high each */
+    grid-template-rows: repeat(2, 120px);
+    gap: 25px;
+    /* Calculate max-width based on columns and gaps */
+    max-width: calc(3 * 120px + 2 * 25px);
+    margin: 0 auto 30px auto; /* Center board and add bottom margin */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.hole {
+    width: 120px;
+    height: 120px;
+    background-color: #3a3a3a;
+    border-radius: 50%; /* Circular hole */
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden; /* IMPORTANT: Clips the image */
+
+    /* Flexbox to center the image inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Face Image & Pop Effect --- */
+
+.face {
+    width: 75%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transform: scale(0);
+    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
+    -webkit-user-drag: none;
+    box-sizing: border-box; /* Add this: Include border in element's total size */
+    /* Optional: Add transition for the border if desired, though quick flash is often fine */
+    /* transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.1s ease-out; */
+}
+
+/* New rule for the clicked state */
+.face.bonked {
+    border: 4px solid red; /* Define the red border */
+}
+
+/* Make sure this rule still exists */
+.hole.up .face {
+    transform: scale(1);
+}
+
+
+/* --- Final Message --- */
+.final-message { /* Using class selector now */
+    margin-top: 30px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    display: none; /* Hidden by default */
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Class to add via JS to display the message */
+.final-message.show {
+    display: block; /* Show the element */
+}
+
+
+.final-message h2 {
+    color: #007BFF;
+    margin-top: 0; /* Adjust spacing */
+    margin-bottom: 10px;
+}
+
+.final-message p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px; /* Adjust spacing */
+    line-height: 1.5;
+}
+
+#wittyMessage {
+    font-style: italic;
+    color: #555; /* Slightly different color for the witty message */
+    margin-top: 5px;
+}
+
+#finalScore {
+    font-weight: bold;
+    color: #0056b3;
+}
