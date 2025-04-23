@@ -10,9 +10,9 @@ const finalMessageContainer = document.getElementById('finalMessage');
 const finalScoreSpan = document.getElementById('finalScore');
 const wittyMessageParagraph = document.getElementById('wittyMessage'); // Get the dedicated paragraph
 const gameBoard = document.getElementById('gameBoard'); // Get the game board for event delegation
-const bompSound = new Audio('sounds/bomp.wav');
-const gameEndSound = new Audio('sounds/game_end.wav');
-const gameEndHighSound = new Audio('sounds/game_end_high.wav');
+const bompSound = new Audio('bomp.wav');
+const gameEndSound = new Audio('game_end.wav');
+const gameEndHighSound = new Audio('game_end_high.wav');
 
 // --- Game Variables ---
 let score = 0;
